@@ -7,8 +7,7 @@ from collections import Counter
 import os
 import csv
 
-ruta = os.path.dirname(os.path.realpath("."))
-ruta = os.path.join(ruta,"SI207 Seminario de Lenguajes (Python)", "Practicas", "Desafíos", "Teoria4")
+ruta = os.path.realpath(".")
 ruta_netflix = os.path.join(ruta, "Datos", "netflix_titles.csv")
 ruta_2021 = os.path.join(ruta, "Datos", "2021_titles.csv")
 
@@ -29,4 +28,3 @@ paises = Counter(paises)
 top_paises = paises.most_common(5)
 print(top_paises)
 # seek 0 en el csv, agregar un counter y contar la cantidad de países
-
