@@ -1,8 +1,7 @@
 *** (APUNTE TEMPORAL) ***
 
 requirements:
-    PySimpleGUIQt
-    PySide2
+    pysimplegui
 
 integrantes:
     Ignacio Mariano
