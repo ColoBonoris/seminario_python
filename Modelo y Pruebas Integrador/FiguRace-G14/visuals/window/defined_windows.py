@@ -3,6 +3,8 @@ import PySimpleGUI as sg
 from pathlib import Path
 import json
 
+#podriamos dividir esto en más programas más específicos
+
 # ROUTES
 def_windows_dir = os.path.dirname(os.path.realpath(__file__))
 images_dir = os.path.join(Path(def_windows_dir).parent.parent,"data","images")
