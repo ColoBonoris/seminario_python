@@ -1,20 +1,16 @@
 import os
 import PySimpleGUI as sg
+from visuals.window.defined_windows import *
+from open_profile import open_profile
 
 defined_windows_dir = os.path.join("visuals","window","defined_windows.py")
-import def_windows
-
 
 def menu():
     while True:
-        try:
-            event, values = menu_window.read()
-        except:
-            print("Pantalla de menú aún no construída.")
-            break
+        event, values = menu_window.read()
         if event == sg.WINDOW_CLOSED:
             break
-        elif event in defined_windows:
+        elif event in menu_events:
             menu_window.close()
             match event:
                 case "-PLAY-":
@@ -37,4 +33,7 @@ def menu():
                         show_scoreboard()
                     except:
                         print("Pantalla de puntajes aún no construída.")
+                        
     menu_window.close()
+
+menu()

@@ -5,29 +5,33 @@ import os
 
 class Player():
     # playersAmount = (cantidad de .json en carpeta users? Para tener una cuenta un poco más cierta? en var de clase)
+    
     def __init__(self, player_dict):
+        # Falta agregar el avatar
         # Todos van a tener get, ninguno del
         # Tendrá sólo para aumentar en uno
-        __amount_played = player_dict["played"]
+        amount_played = player_dict["played"]
         # Tendrán set, uso con cuidado
-        __hi_score = player_dict["top_1"]
-        __second_best = player_dict["top_2"]
-        __third_best = player_dict["top_3"]
+        hi_score = player_dict["top_1"]
+        second_best = player_dict["top_2"]
+        third_best = player_dict["top_3"]
         # No se les puede hacer set
-        __name = player_dict["name"]
-        __nick = player_dict["nick"]
+        name = player_dict["name"]
+        nick = player_dict["nick"]
+
     def played_one(self):
-        self.__amount_played += 1
+        self.amount_played += 1
+
     def eval_score(self,score):
         # ¿Habrá que usar setters también acá adentro?
-        if(score > self.__third_best):
-            if(score > self.__second_best):
-                if(score > self.__hi_score):
-                    self.__hi_score = score
+        if(score > self.third_best):
+            if(score > self.second_best):
+                if(score > self.hi_score):
+                    self.hi_score = score
                 else:
-                    self.__second_best = score
+                    self.second_best = score
             else:
-                self.__third_best = score
+                self.third_best = score
     # podríamos agregar una función de edición de perfil para cambiar avatar, nombre y/o nick
 
 
