@@ -23,9 +23,7 @@ def create_user_row(player_dict):
         [sg.Text(player_dict["top_3"], font3)],
         [sg.Text(f"Total: {scores_total}", font2)],
     ]
-    return [
-        [sg.Column(avatar_column), sg.Column(avatar_nick_column), sg.Column(scores_column)]
-    ]
+    return [sg.Column(avatar_column), sg.Column(avatar_nick_column), sg.Column(scores_column)]
     #sg.Frame
 
 def create_scoreboard_layout():
