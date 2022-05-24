@@ -1,7 +1,7 @@
 import os
 import PySimpleGUI as sg
-from new_profile import create_new_player, new_profile
-from visuals.window.directions import *
+from src.new_profile import create_new_player, new_profile
+from src.directions import *
 
 #defined_windows_dir = os.path.join("visuals","window","defined_windows.py")
 
@@ -40,10 +40,10 @@ def open_profile():
                     except:
                         print("Pantalla de carga de perfiles no encontrada")
                 case "-NEW-":
-                    try:
+                    #try:
                         new_profile()
-                    except:
-                        print("Pantalla de creación de perfiles no encontrada")
+                    #except:
+                        #print("Pantalla de creación de perfiles no encontrada")
                 case "-DELETE-":
                     try:
                         delete_profile()

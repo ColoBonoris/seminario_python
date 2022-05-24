@@ -1,7 +1,8 @@
 import os
 import PySimpleGUI as sg
-from visuals.window.directions import *
-from open_profile import open_profile
+from src.directions import *
+from src.open_profile import open_profile
+from src.show_scoreboard import show_scoreboard
 
 menu_events = ["-PLAY-","-SETTINGS-","-PROFILE-","-SCOREBOARD-"]
 
@@ -40,16 +41,14 @@ def menu():
                     except:
                         print("Pantalla de configuración aún no construída.")
                 case "-PROFILE-":
-                    try:
+                    #try:
                         open_profile()
-                    except:
-                        print("Pantalla de perfil aún no construída.")
+                    #except:
+                        #print("Pantalla de perfil aún no construída.")
                 case "-SCOREBOARD-":
-                    try:
+                    #try:
                         show_scoreboard()
-                    except:
-                        print("Pantalla de puntajes aún no construída.")
+                    #except:
+                        #print("Pantalla de puntajes aún no construída.")
             menu_window.UnHide()
     menu_window.close()
-
-menu()

@@ -1,50 +1,46 @@
 import os
 import PySimpleGUI as sg
+import json
 from pathlib import Path
-# la idea sería que instancie un objeto jugador desde algún json (ultimo usado en ventana cache o sino el primero alfabético) y llame directo a las ventanas de src
+from src.display_menu import menu
+from src.directions import *
+from src.new_profile import create_new_player
+#from data.users.loaded_users import current_users
+# la idea sería que instancie un objeto jugador de
+#Desde algún json (ultimo usado en ventana cache o sino el primero alfabético) y llame directo a las ventanas de src
 # tiene que prevenir errores de falta de archivos
-
-class Player():
-    # playersAmount = (cantidad de .json en carpeta users? Para tener una cuenta un poco más cierta? en var de clase)
-    
-    def __init__(self, player_dict):
-        # Falta agregar el avatar
-        # Todos van a tener get, ninguno del
-        # Tendrá sólo para aumentar en uno
-        amount_played = player_dict["played"]
-        # Tendrán set, uso con cuidado
-        hi_score = player_dict["top_1"]
-        second_best = player_dict["top_2"]
-        third_best = player_dict["top_3"]
-        # No se les puede hacer set
-        name = player_dict["name"]
-        nick = player_dict["nick"]
-
-    def played_one(self):
-        self.amount_played += 1
-
-    def eval_score(self,score):
-        # ¿Habrá que usar setters también acá adentro?
-        if(score > self.third_best):
-            if(score > self.second_best):
-                if(score > self.hi_score):
-                    self.hi_score = score
-                else:
-                    self.second_best = score
-            else:
-                self.third_best = score
-    # podríamos agregar una función de edición de perfil para cambiar avatar, nombre y/o nick
-
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 os.chdir(os.path.join(dir_path,"."))
-print(os.getcwd())
-
+#print(os.getcwd())
 
 font = ('Arial 13 bold')
 colors = (sg.theme_background_color("black"), sg.theme_background_color("LightBlue"))
 sg.set_options(font=font)
 
+def load_default_settings():
+    if len(current_users) == 0:
+        user = "default_user"
+        if(os.path.join(users_dir,user) in os.listdir(users_dir)):
+            create_new_player("User",user,1)
+    else:
+        user = current_users[0]
+    default_settings = {
+        "user": user,
+        "music": True,
+        "topic": "Mixed",
+        "difficulty": "Medium"
+        }
+    with open(settings_dir,"w",encoding="utf-8",newline="") as default_settings_file:
+        #Acá faltaría hacer bien la conversión de caracteres y prevención de errores
+        json.dump(default_settings,default_settings_file)
+    return default_settings
 
+"""if(os.path.exists(settings_dir)):
+    actual_settings = json.load(settings_dir)
+else:
+    actual_settings = load_default_settings()
+print(actual_settings)"""
 # Al final, sea lo que sea que haya pasado, actualiza el .json del jugador
 # capaz para eso debería haber una carpeta bin o caché; que tendrá direcciones, el perfil en uso y los cambios (o algo así)
+menu()

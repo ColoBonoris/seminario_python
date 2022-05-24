@@ -1,4 +1,0 @@
-La idea de la pestaña windows es que tenga definidas las ventanas y layouts, para que se importen desde src y listo
-Para eso hay que usar bien path y hacer una buena estructura de paquetes e importaciones
-
-- Falta hacer la ventana de configuración, la parte de avatares en perfil, los scoreboards y la pantalla de juego

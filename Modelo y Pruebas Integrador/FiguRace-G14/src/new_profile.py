@@ -1,8 +1,8 @@
 import os
 import PySimpleGUI as sg
 import json
-from visuals.window.directions import *
-from choose_avatar import new_avatar
+from src.directions import *
+from src.choose_avatar import new_avatar
 
 #efined_windows_dir = os.path.join("visuals","window","defined_windows.py")
 
@@ -33,28 +33,35 @@ def create_profile_window():
     ]
     return sg.Window('Figurace G14 - New Profile', new_profile_layout, margins=(0,0))
 
-def create_new_player(values, avatar_number):
+def create_new_player(name, nick, avatar_number):
     """
-        Creates a new player, receiving name (values[0]) and nick (values[1]).
+        Creates a new player, receiving name, nick and avatar number.
         Further profile values get initialized on 0
     """
-    new_profile_dir = os.path.join(profiles_dir,(values[1] + ".json"))
+    new_profile_dir = os.path.join(users_dir,(nick + ".json"))
     new_avatar_dir = os.path.join(avatar_dir,(f"avatar{avatar_number}.jpg"))
     #if not os.path.exists(new_profile_dir):
     new_player = {
         # falta agregar la lopción de avatar
-        "name": values[0],
-        "nick": values[1],
-        "avatar": avatars_dir[avatar_number],
+        "name": name,
+        "nick": nick,
+        "avatar": avatar_number,
         "played": 0,
         "top_1": 0,
         "top_2": 0,
         "top_3": 0
     }
-    with open(new_profile_dir,"w",encoding="utf-8",newline="") as new_profile_file:
-        #Acá faltaría hacer bien la conversión de caracteres para prevención de errores
-        json.dump(new_player,new_profile_file)
-    actual_player_dir = new_profile_dir
+    if(os.path.exists(users_dir)):
+        with open(users_dir,"r",encoding="utf-8",newline="") as users_file:
+            #Acá faltaría hacer bien la conversión de caracteres y prevención de errores
+            players_list = json.load(users_file)
+            players_list.append(new_player)
+            new_player = players_list
+    else:
+        new_player = [new_player]
+    with open(users_dir,"w",encoding="utf-8",newline="") as users_file:
+        #Acá faltaría hacer bien la conversión de caracteres y prevención de errores
+        json.dump(new_player,users_file)
 
 def new_profile():
     avatar_number = 0
@@ -63,10 +70,11 @@ def new_profile():
         event, values = new_profile_window.read()
         if event == "-BACK-" or event == sg.WINDOW_CLOSED or event == "-SAVE-":
             if event == "-SAVE-":
-                create_new_player(values,avatar_number)
+                create_new_player(values[0], values[1], avatar_number)
+                new_profile_window.close()
             break
         elif event == "-AVATAR-":
             new_profile_window.Hide()
             avatar_number = new_avatar()
             new_profile_window.UnHide()
-    new_profile_window.close()
+    

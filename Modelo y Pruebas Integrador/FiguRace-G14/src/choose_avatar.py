@@ -1,6 +1,6 @@
 import os
 import PySimpleGUI as sg
-from visuals.window.directions import *
+from src.directions import *
 
 avatar_events = ["-SAVE-","-AVATAR1-","-AVATAR2-","-AVATAR3-","-AVATAR4-","-AVATAR5-","-AVATAR6-","-AVATAR7-","-AVATAR8-","-AVATAR9-"]
 
@@ -37,10 +37,10 @@ def new_avatar():
     while True:
         event, values = avatars_window.read()
         if event == "-BACK-" or event == sg.WIN_CLOSED:
-            avatar = 0
+            avatar = 1
             break
         elif (event in avatar_events):
-            avatar = int(event[-2])-1
+            avatar = int(event[-2])
             break
     avatars_window.close()
     return avatar
