@@ -1,7 +1,0 @@
-# podría haber un archivo con todas las direcciones fuente (imágenes, usuarios, src, etc) para que se accedan más fácil y ordenadamente
-
-# revisar imports
-
-# agregar docstrings
-
-# mejorar nombres
