@@ -1,64 +1,95 @@
-Informe Final
-Claudia Banchoff - Viviana Harari
-{cbanchoff,vharari}@info.unlp.edu.ar
+<center> <h2 style="text-decoration:none">Informe Final</h2> </center>
+<center> <h3 style="text-decoration:none">Seminario de Lenguejes - Python</h3> </center>
+<center> <h3 style="text-decoration:none">Grupo 14</h3> </center>
+
+<br>
+
+_Nicolás Bonoris,_<br>
+_Ulises Geymonat,_<br>
+_Ignacio Mariano,_<br>
+_Enzo Francisco Battista._
+
+<br>
+
+
+
+---
+<br>
+En este informe, realizaremos un desarrollo abarcativo acerca del proyecto en general.
+<br>
+Haremos una muestra de temas pilares que no tendrán un enfoque a nivel de código, sino que con una mirada a nivel de estructura, describiendo primero el trayecto que fue teniendo el proyecto y sus resultados, para luego aportar las guías necesarias para el uso de este "paquete" (yendo desde la instalación y su uso, hasta su modificación y escalado).<br>
+Las consideraciones de estilos y diseño se mencionarán, ejemplificarán y detallarán repetidamente, ya que este es para nuestras consideraciones un aspecto fuerte del producto.
+
+<br>
+
 
 ---
 
 ## Índice
-1. [Introducción](#introducción)
-2. [Marco teórico](#marco-teórico)
-3. [Problemas y soluciones surgidas durante el desarrollo](#problemas-y-soluciones-surgidas-durante-el-desarrollo)
-4. [Consideraciones Éticas sobre el Desarrollo](#consideraciones-éticas-sobre-el-desarrollo)
-5. [Conclusiones y Trabajos Futuros](#conclusiones-y-trabajos-futuros)
-6. [Guía de Usuario](#guía-de-usuario)
-7. [Guía para el Desarrollador](#guía-para-desarrolladores)
+1. [Marco teórico](#1-marco-teórico)
+2. [Problemas y soluciones surgidas durante el desarrollo](#2-problemas-y-soluciones-surgidas-durante-el-desarrollo)
+3. [Consideraciones Éticas sobre el Desarrollo](#3-consideraciones-éticas-sobre-el-desarrollo)
+4. [Conclusiones y Trabajos Futuros](#4-conclusiones-y-trabajos-futuros)
+5. [Guía de Usuario](#5-guía-de-usuario)
+6. [Guía para el Desarrollador](#6-guía-para-desarrolladores)
+
+<br>
+
+
+
 
 ---
 
-# Introducción
-En este informe, realizaremos un desarrollo abarcativo acerca del proyecto en general.
-Haremos una muestra de temas pilares que no tendrán un enfoque a nivel de código, sino que con una mirada a nivel de estructura.
-Por otra parte, se verán plasmados, de manera resumida, los diferentes procesos del trabajo, como los problemas que se presentaron, las consideraciones que se tuvieron para el desempeño general y las conclusiones finales respecto al mismo y la materia.
-Por último se encontrará la guía de usuario, que permitirá  manipular el juego y el manejo de usuarios de manera correcta; y la guía para programador que indica cómo se relacionan las partes a nivel código, el funcionamiento de cada una y así poder modificarlas. 
+# 1. Marco Teórico
 
----
-
-# Marco Teórico
 Para la realización del proyecto, se utilizaron múltiples librerías para conseguir un mejor producto, y para facilitar el desarrollo del mismo.
-Como librería principal para manejar la interfaz del videojuego, se utilizó PySimpleGUI, la cual permite la creación de las diferentes ventanas donde se ejecuta el juego.
-Para trabajar con los diferentes conjuntos de datos, se escogió la librería Pandas, la cual simplifica el manejo de datasets,y permitió, no solamente generar todas las estadisticas y graficos que genera el juego a partir de las partidas jugadas, sino que también se utilizo para realizar el funcionamiento principal del juego (elegir las opciones del conjunto de datos, y elegir la respuesta correcta).
-
-Para la realización de una ambientación musical, se utilizó la librería PyGame, especialmente la funcionalidad del mixer, se verá su uso únicamente en la clase Settings.
-
----
-
-# Problemas y Soluciones surgidas durante el Desarrollo
-Limitaciones de PySimpleGUI: no hay diseño responsivo (por las enormes limitaciones de diseño y personalización, habría que utilizar algún resizing de imágenes y elementos, que con el tiempo dado no pudimos corregir), layouts y frames no actualizables, uso de tamaños no muy claro (en nuestro caso casi aleatorio).
-Problemas de código repetido: el código se estaba tornando muy denso y repetitivo, por lo que decidimos reorganizar el enfoque imperativo por módulos, para pasar a un enfoque orientado a objetos, en su momento para las clases player y settings.
-Separación de las clases: fue uno de las principales preocupaciones en el enfoque, pasamos por diferentes ideas, y al final lo organizamos de acuerdo a los archivos con los que cada clase interactuaba, player y settings tuvieron que compartir un mismo módulo, por errores de importación circular (debido a que compartían utilidades), estas también terminaron por ser completamente estáticas, ya que debido al uso de los datos, la instanciación de objetos era completamente prescindible (y hasta contraproducente, por dificultades en comunicación).
-Problemas en el uso manual de archivos: Una de nuestras principales motivaciones fue en torno al uso seguro del programa (sin rupturas) a pesar de la manipulación manual de los archivos. Los efecto antel borrado y/o modificación (con posibles rupturas de las correspondencias entre los datos) de los archivos de datos (para partidas, configuraciones y perfiles) se intenta mitigar de forma constante, evitando el corte de ejecución del programa; aunque no se recomienda la manipulación manual de los mismos ante ningún caso.  
+- Como librería principal para manejar la interfaz del videojuego, se utilizó [PySimpleGUI](https://www.pysimplegui.org "pysimplegui.org"), la cual permite la creación de las diferentes ventanas donde se ejecuta el juego.
+- Para trabajar con los diferentes conjuntos de datos, se escogió la librería [Pandas](https://pandas.pydata.org/ "pandas.pydata.org"), la cual simplifica el manejo de datasets,y permitió, no solamente generar todas las estadisticas y graficos que genera el juego a partir de las partidas jugadas, sino que también se utilizo para realizar el funcionamiento principal del juego (elegir las opciones del conjunto de datos, y elegir la respuesta correcta).
+- Para la realización de una ambientación musical, se utilizó la librería [PyGame](https://www.pygame.org/docs/ "pygame.org"), especialmente la funcionalidad del mixer, se verá su uso únicamente en la clase Settings.
 
 ---
 
-# Consideraciones Éticas sobre el Desarrollo
-- Por cuestiones de tiempo no pudimos agregar funciones de accesibilidad, nos hubiera gustado tener un modo de contraste alto, o un cambio dinámico de tamaño de fuente***
-- Todo lo utilizado es propio o libre, y la licencia del proyecto es libre***
-- Elección de cualquier género
-- En esta sección podrían mencionar aspectos de accesibilidad, licencias de los recursos, dependencia de un sistema operativo específico (especialmente si se requiere licencia), etc.
+# 2. Problemas y Soluciones surgidas durante el Desarrollo
+- **Limitaciones de PySimpleGUI:** No hay diseño responsivo (por las enormes limitaciones de diseño y personalización, habría que utilizar algún resizing de imágenes y elementos, que con el tiempo dado no pudimos corregir), el uso de los tamaños es muy seguramente uno de los primeros factores que corregiríamos si fuese a preguntarnos. Por otra parte, el hecho de que los layouts no sean elementos actualizables nos limitó en gran manera y nos retrasó mucho, ya que no habíamos escuchado de eso antes y tuvimos que investigar hasta encontrar la causa de los errores que se presentaban.
+- **Problemas de código repetido:** El código se estaba tornando muy denso y repetitivo, por lo que decidimos reorganizar el enfoque imperativo por módulos, para pasar a un enfoque orientado a objetos, en su momento para las clases player y settings.
+- **Separación de las clases:** Fue una de las principales preocupaciones en el enfoque, pasamos por diferentes ideas, y al final lo terminamos por realizar de acuerdo a los archivos con los que cada clase interactuaba, player y settings tuvieron que compartir un mismo módulo (por errores de importación circular, cuyas dependencias causantes fueron resueltas pudiendo separarlos); estas también terminaron por ser completamente estáticas, ya que debido al uso de los datos la instanciación de objetos era completamente prescindible (y hasta contraproducente, por dificultades en comunicación). Con la clase Match también hubieron muchas ideas descartadas, las cuales culminaron en la creación de una cuarta clase "controladora" (InGameEvents).
+- **Problemas en el uso manual de archivos:** Otra de nuestras principales motivaciones fue en torno al uso seguro del programa (sin rupturas) a pesar de la manipulación manual de los archivos. Los efectos ante el borrado y/o modificación (con posibles rupturas de las correspondencias entre los datos) de los archivos de datos (para partidas, configuraciones y perfiles) se intentan mitigar de forma constante, evitando el corte de ejecución del programa; de todas formas, no se recomienda la manipulación manual de los mismos bajo ningún término.  
+
+<br>
+
 
 ---
 
-# Conclusiones y trabajos futuros
-- Lo aprendido es completísimo, el mayor valor que le sacamos es para la creación de un proyecto de software, trabajo en grupo para la creación de un proyecto, introduce mucho al mundo práctico de esta carrera.
-hablar de git y repositorios
-hablar de venv
-hablar de estructuras de directorios y usos de direcciones y módulos
-- PySimpleGUI es una librería con altísimas limitaciones si se busca hacer un diseño estético; el uso de imágenes y tamaños genera muchísimas complicaciones. El uso de tal vez otra librería, o tal vez una guía que presente estas limitaciones desde antes de comenzar el proyecto hubiera sido muy útil***
-Referencias
+# 3. Consideraciones Éticas sobre el Desarrollo
+- Por cuestiones de tiempo no pudimos agregar funciones de accesibilidad, nos hubiera gustado tener un modo de contraste alto, un cambio dinámico de tamaño de fuente y selección de idiomas (por lo menos Español/Inglés). En estos aspectos, pudimos avanzar un poco llegando ya al final, poniendo temas diferentes (donde se puede elegir el que menos canse la vista/ mayor contraste genere/ más guste) y preparando el uso de estilos globales.
+- Todo lo utilizado es propio o libre, y la licencia del proyecto es libre.
+- La elección de género en las instancias de creación y modificación de perfil permitan a cada uno ingresar ña opción que prefiera, no hay ninguna restriccción ante tipos específicos predefinidos.
+- Una mayor compatibilidad con grandes variedades de dispositivos (ya sea en torno a Software o Hardware) hubiera sido un fin ideal, hasta lo que pudimos llegar fue a incluir soporte para Windows y Linux, facilitando el troubleshooting mediante la impresión de advertencias en consola e incluyendo un archivo "requirements.txt" con las dependencias del "paquete". 
+
+<br>
+
+
 
 ---
 
-# Guía de Usuario
+# 4. Conclusiones y trabajos futuros
+- Lo aprendido es completísimo, el mayor valor que le sacamos es para la creación de un proyecto de software, trabajo en grupo para la creación de un proyecto, introduce mucho al mundo práctico de esta carrera. Esto se ve mucho en el uso de git y los repositorios en GitLab.
+- Aprendimos muchísimo sobre creación de proyectos de software, en lo que nuestra experiencia era casi nula:
+    - Creación de estructuras de directorios.
+    - Compatibilidad entre diferentes OS (por las siglas en inglés de Sistemas Operativos) por medio de direcciones relativas y uso de ambientes y máquinas virtuales.
+    - Uso coherente y seguro de los datos.
+    - Uso coherente de múltiples módulos con importaciones.
+    - Uso de librerías.
+Son sólo algunas de los tantos temas en los que tuvimos una excelente primera experiencia con este proyecto.
+- PySimpleGUI es una librería con altísimas limitaciones si se busca hacer un diseño estético; el uso de imágenes y tamaños genera muchísimas complicaciones. El uso de tal vez otra librería, o tal vez una guía que presente más a detalle estas limitaciones desde antes de comenzar el proyecto hubiera sido muy útil. De todas formas, creemos que hasta estas limitaciones plantean ventajas, ya que adaptarse a ellas e investigar para encontrar soluciones es una de las mejores maneras de aprender (además de ser esta habilidad, la de solucionar problemas con las herramientas disponibles, indispensable para el desarrollo de un perfil profesional). Ni se mencionan las utilidades de haber tenido un primer contacto con una GUI (por las siglas en inglés de Interfaz de Usuario Gráfica).
+
+<br>
+
+
+
+---
+
+# 5. Guía de Usuario
 Acá podrían incluir capturas de pantalla de la aplicación, con una guía de cómo se opera.
 La Figura 1 muestra una captura de la pantalla inicial del juego…..
 
@@ -69,18 +100,22 @@ Figura 1. Captura de…..
 - Advertencia recomendando no tocar archivos.
 - Capturas de estilo “how to play”, explicando la interfaz, y cada recomendación (juejo, configuración, perfiles, scores, …).
 
+<br>
+
+
+
 ---
 
-# Guía para Desarrolladores
+# 6. Guía para Desarrolladores
 Comenzando por la estructura de directorios, tendremos una estructura como se muestra en la imagen:
 
-![Main Directory Structure](images/structure_guide_1.png)
+![Main Directory Structure](img/structure_guide_1.png)
 
 Todos los archivos de Lectura/Escritura se ubicarán en “data”, para el acceso a un archivo se recomienda añadir su dirección como una constante en “src > constants > directions”, se recomienda seguir con el orden por subdirectorios, para facilitar la ubicación de cada archivo (una buena práctica sería por ejemplo separar las imágenes por uso, como se vino haciendo hasta el release v3.0 - o “tercer entrega”, como prefieren decirle algunos).
 Para el agregado de programas que no sean utilizados en la ejecución del juego y que utilicen los datos (ya sea en forma de lectura o escritura), se hará dentro del directorio “data_management”.
 El código del programa se alojará en “src”, la estructura dentro del mismo está también definida, para un mayor orden:
 
-![src Directory Structure](images/structure_guide_2.png)
+![src Directory Structure](img/structure_guide_2.png)
 
 El funcionamiento se basará en 3 sectores principales: **datos**, **clases** y **ventanas**. La interacción entre estos 3 irá definiendo toda la estructura; clases y ventanas consultarán constantemente las constantes del proyecto y el contenido de lectura de “data”.
 
