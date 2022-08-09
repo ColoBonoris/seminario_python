@@ -4,10 +4,9 @@
 
 <br>
 
-_Nicolás Bonoris,_<br>
-_Ulises Geymonat,_<br>
-_Ignacio Mariano,_<br>
-_Enzo Francisco Battista._
+Nicolás Bonoris,<br>
+Ulises Geymonat,<br>
+Enzo Francisco Battista.
 
 <br>
 
@@ -15,9 +14,9 @@ _Enzo Francisco Battista._
 
 ---
 <br>
-En este informe, realizaremos un desarrollo abarcativo acerca del proyecto en general.
+En este informe, se realizara un desarrollo abarcativo acerca del proyecto en general.
 <br>
-Haremos una muestra de temas pilares que no tendrán un enfoque a nivel de código, sino que con una mirada a nivel de estructura, describiendo primero el trayecto que fue teniendo el proyecto y sus resultados, para luego aportar las guías necesarias para el uso de este "paquete" (yendo desde la instalación y su uso, hasta su modificación y escalado).<br>
+Se hará una muestra de temas pilares que no tendrán un enfoque a nivel de código, sino que con una mirada a nivel de estructura, describiendo primero el trayecto que fue teniendo el proyecto y sus resultados, para luego aportar las guías necesarias para el uso de este "paquete" (yendo desde la instalación y su uso, hasta su modificación y escalado).<br>
 Las consideraciones de estilos y diseño se mencionarán, ejemplificarán y detallarán repetidamente, ya que este es para nuestras consideraciones un aspecto fuerte del producto.
 
 <br>
@@ -50,10 +49,10 @@ Para la realización del proyecto, se utilizaron múltiples librerías para cons
 ---
 
 # 2. Problemas y Soluciones surgidas durante el Desarrollo
-- **Limitaciones de PySimpleGUI:** No hay diseño responsivo (por las enormes limitaciones de diseño y personalización, habría que utilizar algún resizing de imágenes y elementos, que con el tiempo dado no pudimos corregir), el uso de los tamaños es muy seguramente uno de los primeros factores que corregiríamos si fuese a preguntarnos. Por otra parte, el hecho de que los layouts no sean elementos actualizables nos limitó en gran manera y nos retrasó mucho, ya que no habíamos escuchado de eso antes y tuvimos que investigar hasta encontrar la causa de los errores que se presentaban.
-- **Problemas de código repetido:** El código se estaba tornando muy denso y repetitivo, por lo que decidimos reorganizar el enfoque imperativo por módulos, para pasar a un enfoque orientado a objetos, en su momento para las clases player y settings.
-- **Separación de las clases:** Fue una de las principales preocupaciones en el enfoque, pasamos por diferentes ideas, y al final lo terminamos por realizar de acuerdo a los archivos con los que cada clase interactuaba, player y settings tuvieron que compartir un mismo módulo (por errores de importación circular, cuyas dependencias causantes fueron resueltas pudiendo separarlos); estas también terminaron por ser completamente estáticas, ya que debido al uso de los datos la instanciación de objetos era completamente prescindible (y hasta contraproducente, por dificultades en comunicación). Con la clase Match también hubieron muchas ideas descartadas, las cuales culminaron en la creación de una cuarta clase "controladora" (InGameEvents).
-- **Problemas en el uso manual de archivos:** Otra de nuestras principales motivaciones fue en torno al uso seguro del programa (sin rupturas) a pesar de la manipulación manual de los archivos. Los efectos ante el borrado y/o modificación (con posibles rupturas de las correspondencias entre los datos) de los archivos de datos (para partidas, configuraciones y perfiles) se intentan mitigar de forma constante, evitando el corte de ejecución del programa; de todas formas, no se recomienda la manipulación manual de los mismos bajo ningún término.  
+- *Limitaciones de PySimpleGUI:* No hay diseño responsivo (por las enormes limitaciones de diseño y personalización, habría que utilizar algún resizing de imágenes y elementos, que con el tiempo dado no pudo ser corregido), el uso de los tamaños es muy seguramente uno de los primeros factores que se corregirían en el caso de hacer correcciones. Por otra parte, el hecho de que los layouts no sean elementos actualizables genero una gran limitacion y provoco retrasos en el proyecto, ya que no se tenia información previa, por lo que se tuvo que realizar una investigación hasta encontrar la causa de los errores que se presentaban.
+- *Problemas de código repetido:* El código se estaba tornando muy denso y repetitivo, por lo que se decidio reorganizar el enfoque imperativo por módulos, para pasar a un enfoque orientado a objetos, en su momento para las clases Player y Settings.
+- *Separación de las clases:* Fue una de las principales preocupaciones en el enfoque, se barajaron ideas, y al final se decidio realizar de acuerdo a los archivos con los que cada clase interactuaba, Player y Settings tuvieron que compartir un mismo módulo (por errores de importación circular, cuyas dependencias causantes fueron resueltas pudiendo separarlos); estas también terminaron por ser completamente estáticas, ya que debido al uso de los datos la instanciación de objetos era completamente prescindible (y hasta contraproducente, por dificultades en comunicación). Con la clase Match también existieron muchas ideas descartadas, las cuales culminaron en la creación de una cuarta clase "controladora" (InGameEvents).
+- *Problemas en el uso manual de archivos:* Otra de las principales motivaciones es en torno al uso seguro del programa (sin rupturas) a pesar de la manipulación manual de los archivos. Los efectos ante el borrado y/o modificación (con posibles rupturas de las correspondencias entre los datos) de los archivos de datos (para partidas, configuraciones y perfiles) se intentan mitigar de forma constante, evitando el corte de ejecución del programa; de todas formas, no se recomienda la manipulación manual de los mismos bajo ningún término.  
 
 <br>
 
@@ -61,10 +60,10 @@ Para la realización del proyecto, se utilizaron múltiples librerías para cons
 ---
 
 # 3. Consideraciones Éticas sobre el Desarrollo
-- Por cuestiones de tiempo no pudimos agregar funciones de accesibilidad, nos hubiera gustado tener un modo de contraste alto, un cambio dinámico de tamaño de fuente y selección de idiomas (por lo menos Español/Inglés). En estos aspectos, pudimos avanzar un poco llegando ya al final, poniendo temas diferentes (donde se puede elegir el que menos canse la vista/ mayor contraste genere/ más guste) y preparando el uso de estilos globales.
+- Se deseaba agregar funciones de accesibilidad, como un modo de contraste alto, un cambio dinámico de tamaño de fuente y selección de idiomas (por lo menos Español/Inglés), pero esto no pudo ser posible debido a falta de tiempo. En estos aspectos, se pudo avanzar un poco llegando ya al final, introduciendo la eleccion de temas diferentes (donde se puede elegir el que menos canse la vista/ mayor contraste genere/ más guste) y preparando el uso de estilos globales.
 - Todo lo utilizado es propio o libre, y la licencia del proyecto es libre.
-- La elección de género en las instancias de creación y modificación de perfil permitan a cada uno ingresar ña opción que prefiera, no hay ninguna restriccción ante tipos específicos predefinidos.
-- Una mayor compatibilidad con grandes variedades de dispositivos (ya sea en torno a Software o Hardware) hubiera sido un fin ideal, hasta lo que pudimos llegar fue a incluir soporte para Windows y Linux, facilitando el troubleshooting mediante la impresión de advertencias en consola e incluyendo un archivo "requirements.txt" con las dependencias del "paquete". 
+- El videojuego permite la elección libre de genero autopercibido, para asi incluir a todas las personas que puedan no sentirse identificadas en los generos binarios. En la casilla de eleccion de género, puede o bien escribir el género que desee el usuario, o a través de la flecha que se encuentra en el extremo derecho del casillero, desplegar una ventana donde se mostrarán las opciones “Male”(masculino), “Female” (femenino) y “I prefer not to say” (prefiero no decirlo).
+- Una mayor compatibilidad con grandes variedades de dispositivos (ya sea en torno a Software o Hardware) hubiera sido un fin ideal. Sin embargo, lo que se consiguió fue incluir soporte para Windows y Linux, facilitando el troubleshooting mediante la impresión de advertencias en consola e incluyendo un archivo requirements.txt con las dependencias del "paquete". 
 
 <br>
 
@@ -73,15 +72,15 @@ Para la realización del proyecto, se utilizaron múltiples librerías para cons
 ---
 
 # 4. Conclusiones y trabajos futuros
-- Lo aprendido es completísimo, el mayor valor que le sacamos es para la creación de un proyecto de software, trabajo en grupo para la creación de un proyecto, introduce mucho al mundo práctico de esta carrera. Esto se ve mucho en el uso de git y los repositorios en GitLab.
-- Aprendimos muchísimo sobre creación de proyectos de software, en lo que nuestra experiencia era casi nula:
+- La realización de este trabajo otorgó un gran conocimiento a los que trabajaron en el mismo.Lo aprendido sobre el uso de plataformas de desarrollo colaborativo, como lo fue Gitlab, es indispensable para el desarrollo de futuros trabajos. Además, el aprendizaje a realizar un trabajo grupal es algo a destacar, ya que actualmente el mundo de la programación funciona en base a grupos de desarrolladores.
+- Se obtuvo un gran aprendizaje sobre creación de proyectos de software, en lo que la experiencia previa era casi nula:
     - Creación de estructuras de directorios.
     - Compatibilidad entre diferentes OS (por las siglas en inglés de Sistemas Operativos) por medio de direcciones relativas y uso de ambientes y máquinas virtuales.
     - Uso coherente y seguro de los datos.
     - Uso coherente de múltiples módulos con importaciones.
     - Uso de librerías.
-Son sólo algunas de los tantos temas en los que tuvimos una excelente primera experiencia con este proyecto.
-- PySimpleGUI es una librería con altísimas limitaciones si se busca hacer un diseño estético; el uso de imágenes y tamaños genera muchísimas complicaciones. El uso de tal vez otra librería, o tal vez una guía que presente más a detalle estas limitaciones desde antes de comenzar el proyecto hubiera sido muy útil. De todas formas, creemos que hasta estas limitaciones plantean ventajas, ya que adaptarse a ellas e investigar para encontrar soluciones es una de las mejores maneras de aprender (además de ser esta habilidad, la de solucionar problemas con las herramientas disponibles, indispensable para el desarrollo de un perfil profesional). Ni se mencionan las utilidades de haber tenido un primer contacto con una GUI (por las siglas en inglés de Interfaz de Usuario Gráfica).
+Son sólo algunas de los tantos temas en los que se encontro una excelente primera experiencia con este proyecto.
+- En un primer momento, el uso de la libreria PySimpleGUI facilito de gran forma el diseño de ventanas simples, ya que con un par de lineas de codigo se podia obtener un resultado aceptable para la cantidad de esfuerzo invertido, sin embargo, con el transcurso del proyecto llegamos a la conclusion de que esta libreria posee altísimas limitaciones si se busca hacer un diseño estético mas complejo; el uso de imágenes y tamaños genera muchísimas complicaciones. Todas estas adversidade dificultaban y retrasaban el desarrollo. El uso de tal vez otra librería, o tal vez una guía que presente más a detalle estas limitaciones desde antes de comenzar el proyecto hubiera sido muy útil. De todas formas, concluimos que hasta estas limitaciones plantean ventajas, ya que adaptarse a ellas e investigar para encontrar soluciones es una de las mejores maneras de aprender (además de ser esta habilidad, la de solucionar problemas con las herramientas disponibles, indispensable para el desarrollo de un perfil profesional). Otra cosa a destacar, son las utilidades de haber tenido un primer contacto con una GUI (por las siglas en inglés de Interfaz de Usuario Gráfica).
 
 <br>
 
@@ -117,13 +116,13 @@ El código del programa se alojará en “src”, la estructura dentro del mismo
 
 ![src Directory Structure](img/structure_guide_2.png)
 
-El funcionamiento se basará en 3 sectores principales: **datos**, **clases** y **ventanas**. La interacción entre estos 3 irá definiendo toda la estructura; clases y ventanas consultarán constantemente las constantes del proyecto y el contenido de lectura de “data”.
+El funcionamiento se basará en 3 sectores principales: *datos, **clases* y *ventanas*. La interacción entre estos 3 irá definiendo toda la estructura; clases y ventanas consultarán constantemente las constantes del proyecto y el contenido de lectura de “data”.
 
-La _interacción con los archivos volátiles_ (“matches” con los datos de partidas, “users” con los datos de los usuarios, “loaded_nicks” con todos los nicks en uso y correspondencia de acceso con usuarios en “users”, y “cached_settings”) será principalmente (si no de forma exclusiva) por medio de las **clases**, que _a su vez interactuarán con cada ventana_, y estas con el usuario.
+La interacción con los archivos volátiles (“matches” con los datos de partidas, “users” con los datos de los usuarios, “loaded_nicks” con todos los nicks en uso y correspondencia de acceso con usuarios en “users”, y “cached_settings”) será principalmente (si no de forma exclusiva) por medio de las *clases*, que a su vez interactuarán con cada ventana, y estas con el usuario.
 <br>
-Las **ventanas** _interactuarán con el usuario y las clases_. Se busca que cada ventana esté contenida en un programa dedicado, el cual tendrá la función creadora del layout, la función creadora de la ventana y el loop de ejecución de la misma, además de cualquier función que se quiera, si es esta exclusiva de esta ventana. En la carpeta window podremos ubicar otras funciones si son exclusivamente para uso de GUI (un ejemplo es “card_creation.py”, con funcionalidades para la creación de botones y tarjetas en la ventana de juego).
+Las *ventanas* interactuarán con el usuario y las clases. Se busca que cada ventana esté contenida en un programa dedicado, el cual tendrá la función creadora del layout, la función creadora de la ventana y el loop de ejecución de la misma, además de cualquier función que se quiera, si es esta exclusiva de esta ventana. En la carpeta window podremos ubicar otras funciones si son exclusivamente para uso de GUI (un ejemplo es “card_creation.py”, con funcionalidades para la creación de botones y tarjetas en la ventana de juego).
 <br>
-Para el escalado eficiente del programa, cualquier agregado en estilos o direcciones deberá verse reflejado en **constants**, que contendrá todas las _constantes del programa_.
+Para el escalado eficiente del programa, cualquier agregado en estilos o direcciones deberá verse reflejado en *constants*, que contendrá todas las constantes del programa.
 
 ---
 
@@ -144,6 +143,3 @@ Será completamente estática y controlará los datos de los jugadores, ya sean 
 ---
 
 Como último tema importante a tratar, podemos hablar de las consideraciones hacia los posibles errores por modificación manual de los archivos, que fue una de las preocupaciones principales al momento de llevar a cabo las clases (que llevarán toda interacción con los datos). El fin principal en el que nos centramos fue en evitar la ruptura del programa y/o la muestra de información no válida, por lo que ante cualquier inconsistencia en los datos, error en la estructura del archivo, cargado de datos no válidos, fallo por archivo inexistente, etcétera; se creará un nuevo archivo en blanco y se pisará la dirección en la que este debería existir. Esto es una tarea muy compleja, por lo que seguirán habiendo errores en contadas ocasiones, la guía de uso en “README.txt” deberá advertir en contra de esta práctica, y ante cualquier error a causa de esto, recomendar una reinstalación del paquete completo.
-
-
-
