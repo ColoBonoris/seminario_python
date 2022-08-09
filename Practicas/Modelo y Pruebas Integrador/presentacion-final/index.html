@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Python - Grupo 14</title>
+    <meta charset="utf-8">
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+        @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+        @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+        @import url(https://fonts.google.com/betterspecimen/Fira+Code?category=Monospace);
+        @import url(https://fonts.google.com/betterspecimen/Major+Mono+Display?category=Monospace);
+
+    body {
+        font-family: 'Fira Code';
+        background-color: #13162d;
+        color: #c4c5af;
+    }
+
+    .backgroundBlue {
+        background-color: #13162d;
+    }
+    .backgroundCream {
+        background-color: #c4c5af;
+    }
+    .backgroundBlue h1 {
+        font-family: 'Major Mono Display';
+        font-weight: normal;
+        background-color: #c4c5af;
+        color: #13162d;
+    }
+    .backgroundBlue h2, h3 {
+        font-family: 'Fira Code';
+        font-weight: normal;
+        background-color: #13162d;
+        color: #c4c5af;
+    }
+    .backgroundCream h1, h2, h3 {
+        font-family: 'Major Mono Display';
+        font-weight: normal;
+        background-color: #c4c5af;
+        color: #13162d;
+    }
+
+    .remark-code, .remark-inline-code { 
+        font-family: 'Ubuntu Mono';
+        color: #a8a99a;
+    }
+    .remark-code, .remark-inline-code { 
+        font-family: 'Ubuntu Mono';
+        color: #7d7f74;
+    }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle, backgroundCream
+
+# Seminario de lenguajes
+# Python
+# Grupo 14
+
+---
+class: backgroundBlue
+
+# Contenidos
+
+1. Introducción al Proyecto y el Equipo 
+2. Presentación de la Interfaz Gráfica 
+3. Presentación de la Estructura de Código 
+4. Conclusiones  
+
+---
+class: center, middle, backgroundCream
+
+# Introducción
+
+---
+class: backgroundBlue
+
+# Motivaciones principales: 
+- Evitar a toda costa la ruptura del programa 
+        - Advertencias por falta de módulos 
+        - Consistencia de los archivos L/E hasta ante modificación manual 
+        - Testeado extensivo 
+- Creación de un diseño estético 
+        - Imágenes propias 
+        - Atención a las paletas de colores 
+        - Constancia en una estética (un intento de estilo retro) 
+- Escalado eficiente 
+        - Estilos globales 
+        - Direcciones globales 
+        - Organización de archivos y código muy planificados 
+- Tendencias constantes hacia el uso y creación de Software Libre 
+        - Librerías de uso Libre 
+        - Contenido multimedia de uso Libre 
+        - Licencia Libre sobre todas nuestras creaciones en este proyecto 
+#   
+
+---
+class: center, middle, backgroundCream
+
+# Presentando<br>Interfaz Gráfica
+
+---
+class: center, middle, backgroundBlue
+
+# Estructura de pantallas
+![GUI First Peek](img/gui_peek_1.png)
+
+---
+class: center, middle, backgroundBlue
+
+# Pantalla de Juego
+![GUI First Peek](img/gui_peek_2.png)
+---
+class: center, middle, backgroundBlue
+
+# Pantalla de Configuración
+![GUI First Peek](img/gui_peek_3.png)
+
+---
+class: center, middle, backgroundBlue
+
+# Pantalla administración de Usuarios
+![GUI First Peek](img/gui_peek_4.png)
+
+---
+class: center, middle, backgroundBlue
+
+# Pantalla de Puntajes
+![GUI First Peek](img/gui_peek_5.png)
+
+---
+class: center, middle, backgroundCream
+
+# Presentando<br>Estructura de Código
+
+---
+class: backgroundBlue
+
+# Principales Estructuras
+1. Clases
+2. Datos
+3. Ventanas
+
+---
+class: backgroundBlue
+
+# Principales Estructuras
+1. Clases
+        Las clases serán la única forma de interacción con datos de L/E, organizan mucho
+        mejor las funciones y el manejo de las mismas. Su uso fue clave para el posterior
+        escalado del proyecto.
+2. Datos
+        Las estructuras de datos serán de consulta y escritura casi constante, irán
+        guardando la información sobre el uso del juego, y serán las diferencias
+        entre un juego ejecutado y uno recién instalado.
+3. Ventanas
+        Las ventanas son las únicas formas de interactuar con el usuario, conforman
+        la interfaz gráfica y se comunican con los datos por medio de las clases.
+        Cada una tendrá su propio módulo.
+---
+class: backgroundBlue
+
+# Esquema de código
+![GUI First Peek](img/code_structure.png)
+
+---
+class: center, middle, backgroundCream
+
+# Conclusiones
+
+---
+class: backgroundBlue
+
+
+
+
+
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
